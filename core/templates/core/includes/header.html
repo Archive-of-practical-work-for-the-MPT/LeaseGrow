@@ -5,7 +5,15 @@
             <a href="{% url 'home' %}#uslugi">Услуги</a>
             <a href="{% url 'home' %}#tekhnika">Техника</a>
             <a href="{% url 'home' %}#kontakt">Контакты</a>
+            {% if current_account %}
+            <span class="nav-user">{{ current_account.username }}</span>
+            <a href="{% url 'logout' %}">Выйти</a>
             <a href="{% url 'home' %}#zayavka" class="btn-nav">Оставить заявку</a>
+            {% else %}
+            <a href="{% url 'register' %}">Регистрация</a>
+            <a href="{% url 'login' %}" class="btn-nav">Вход</a>
+            <a href="{% url 'home' %}#zayavka">Оставить заявку</a>
+            {% endif %}
         </nav>
     </div>
 </header>
